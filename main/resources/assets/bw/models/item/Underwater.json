@@ -1,0 +1,6 @@
+{
+    "parent":"bw:item/standard_item",
+    "textures": {
+        "layer0":"bw:items/Underwater"
+    }
+}
