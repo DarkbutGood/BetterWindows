@@ -1,8 +1,6 @@
 {
- "variants": {
-        "facing=north": { "model": "Underwater_Art_Deco", "y": 180 },
-        "facing=south": { "model": "Underwater_Art_Deco", },
-        "facing=west":  { "model": "Underwater_Art_Deco", "y": 270 },
-        "facing=east":  { "model": "Underwater_Art_Deco", "y": 90 }
-    }
-}
+    "variants": {
+        "facing=north": { "model": "bw:Underwater_Art_Deco" },
+        "facing=south": { "model": "bw:Underwater_Art_Deco", "y": 180 },
+        "facing=west": { "model": "bw:Underwater_Art_Deco", "y": 270 },
+        "facing=east": { "model": "bw:Underwater_Art_Deco", "y": 90 },

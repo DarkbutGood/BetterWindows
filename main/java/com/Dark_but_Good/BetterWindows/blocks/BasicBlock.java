@@ -4,12 +4,15 @@ import com.Dark_but_Good.BetterWindows.Main;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.properties.PropertyDirection;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumWorldBlockLayer;
 import net.minecraft.world.IBlockAccess;
+import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -57,4 +60,27 @@ public class BasicBlock extends Block{
         
         return block == this ? false : super.shouldSideBeRendered(worldIn, pos, side);
     }
+    public static final PropertyDirection PROPERTYFACING = PropertyDirection.create("facing", EnumFacing.Plane.HORIZONTAL);
+    @Override
+    public IBlockState onBlockPlaced(World worldIn, BlockPos pos, EnumFacing blockFaceClickedOn, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer)
+    {
+      EnumFacing enumfacing = (placer == null) ? EnumFacing.NORTH : EnumFacing.fromAngle(placer.rotationYaw);
+
+      return this.getDefaultState().withProperty(PROPERTYFACING, enumfacing);
+    }
+    
+    @Override
+    public IBlockState getStateFromMeta(int meta)
+    {
+      EnumFacing facing = EnumFacing.getHorizontal(meta);
+      return this.getDefaultState().withProperty(PROPERTYFACING, facing);
+    }
+    
+     @Override
+      public int getMetaFromState(IBlockState state)
+      {
+        EnumFacing facing = (EnumFacing)state.getValue(PROPERTYFACING);
+        int facingbits = facing.getHorizontalIndex();
+        return facingbits;
+      }
 }

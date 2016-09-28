@@ -5,7 +5,6 @@
         "1": "blocks/hardened_clay_stained_black",
         "2": "bw:blocks/Underwater_Art_Deco"
     },
-    "parent": "block/orientable"
     "elements": [
         {
             "name": "Glass",
